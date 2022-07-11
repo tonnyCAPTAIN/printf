@@ -1,46 +1,51 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <unistd.h>
-#include <stdlib.h>
+#include <stdio.h>
 #include <stdarg.h>
 
 /**
- * struct convert - defines a structure for symbols and functions
- * @sym: The operator
- * @f: The function
+ * struct vtype - struct vtype
+ * @tp: tp
+ * @f: function
  */
 
-
-struct convert
+typedef struct vtype
 {
-	char *sym;
-	int (*f)(va_list);
-};
+	char tp;
+	void (*f)();
+}vtype_t;
 
-typedef struct convert conver_t;
-/*
- * function prototypes
- */
-int parser(const char *format, conver_t f_list[], va_list arg_list);
 int _printf(const char *format, ...);
-int _write_char(char);
-int print_char(va_list);
-int print_string(va_list);
-int print_percent(va_list);
-int print_integer(va_list);
-int print_number(va_list);
-int print_binary(va_list);
-int print_reversed(va_list arg);
-int rot13(va_list);
-int unsigned_integer(va_list);
-int print_octal(va_list list);
-int print_hex(va_list list);
-int print_heX(va_list list);
-unsigned int base_len(unsigned int, int);
-char *rev_string(char *);
-void write_base(char *str);
+void print_char(va_list valist);
+void print_int(va_list valist);
+void print_float(va_list valist);
+void print_string(va_list valist);
+void _write_buffer(char *buffer, int *index);
+int _strlen(char *s);
 char *_memcpy(char *dest, char *src, unsigned int n);
-int print_unsgined_number(unsigned int);
+void format_s(va_list valist, char *buffer, int *index);
+void format_c(va_list valist, char *buffer, int *index);
+void format_d(va_list valist, char *buffer, int *index);
+char *itos(char str[], long int num);
+char *utos(char str[], int num);
+int num_len(int num);
+int float_len(double f);
+void format_i(va_list valist, char *buffer, int *index);
+void format_u(va_list valist, char *buffer, int *index);
+void format_perc(va_list valist, char *buffer, int *index);
+void format_p(va_list valist, char *buffer, int *index);
+void format_lx(va_list valist, char *buffer, int *index);
+char *tostring(char str[], int num);
+int num_len(int num);
+void reset_buffer(char buffer[]);
+void *rot13(char *s);
+void rev_string(char *s);
+void format_h(va_list valist, char *buffer, int *index);
+void format_ch(va_list valist, char *buffer, int *index);
+void format_o(va_list valist, char *buffer, int *index);
+void format_b(va_list valist, char *buffer, int *index);
+void format_r(va_list valist, char *buffer, int *index);
+void format_R(va_list valist, char *buffer, int *index);
 
 #endif
