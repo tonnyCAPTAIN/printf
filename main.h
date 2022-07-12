@@ -2,23 +2,35 @@
 #define MAIN_H
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 #include <stdarg.h>
-#include "print_functions"
+#include <limits.h>
+#include <unistd.h>
 
 /**
- * struct vtype - struct vtype
- * @tp: tp
- * @f: function
+ * struct func_s - Struct func_s
+ * @op: The operator
+ * @f: The function associated
  */
-
-typedef struct vtype
-{
-	char tp;
+typedef struct func_s {
+	char op;
 	void (*f)();
-} vtype_t;
-int _printf(const char *format, ...);
+} func_t;
+
+/* _putchar function */
 int _putchar(char c);
-int print_string(char *);
-int print_decimal(int n);
+
+/* Function that produces output according to a format */
+int _printf(const char *format, ...);
+
+/* print functions */
+void print_string(char *str);
+void print_integer(int n);
+void print_char(va_list ap);
+void print_str(va_list ap);
+void print_percent_sign(va_list ap);
+void print_int(va_list ap);
 
 #endif

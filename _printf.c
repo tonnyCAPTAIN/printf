@@ -1,49 +1,60 @@
-#include <stdarg.h>
 #include "main.h"
+
+/**
+ * _printf - Printf function
+ * @format: The format of the string
+ *
+ * Return: The number of characters printed
+ */
+
 int _printf(const char *format, ...)
 {
-	int count = 0, i;
+	unsigned int i, j;
+	va_list ap;
 
-	va_list data;
-	va_start(data, format);
+	func_t funcs[] = {
+		{'c', print_char},
+		{'s', print_string},
+		{'%', print_percent_sign},
+		{'i', print_integer},
+		{'d', print_integer},
+		{0, NULL}
+	};
 
-	for (i = 0; format[i] != '\0';){
-	/*couint no of characters and print to screen*/
+	va_start(ap, format);
+	i = 0;
 
-		if (format[i] != '%'){
-		count += _putchar(format[i]);
+	while (format != NULL && format[i] != '\0')
+	{
+		j = 0;
+		if (format[i] == '%')
+		{
+			i++;
+			if (format[i] == '\0')
+				break;
+			while (funcs[j].op != 0)
+			{
+				if (format[i] == (funcs[j].op))
+				{
+					funcs[j].f(ap);
+					break;
+				}
+				j++;
+			}
+			if (j > 4)
+			{
+				_putchar(format[i - 1]);
+				_putchar(format[i]);
+			}
+		}
+		else
+
+		{
+			_putchar(format[i]);
+		}
 		i++;
-		}
-		else if (format[i] == '%' && format[i+1] != ' '){
-		switch (format[i + 1]){
-		
-			case 'c':
-				/*printthe character from thr va_arguments*/
-				count += _putchar(va_arg(data, int));
-				break;
-			case 's':
-				count += print_string(va_arg(data, char *));
-				break;
-
-			case '%':
-				 count += _putchar('%');
-				 break;
-			case 'd':
-				 count += print_decimal(va_arg(data, int));
-				 break;
-			case 'i':
-				  count += print_decimal(va_arg(data, int));
-				  break;
-			default:
-				  break;
-		}
-
-		i += 2;
-		
-		}
 	}
+	va_end(ap);
 
-
-
-	return (count);
+	return (i);
 }
