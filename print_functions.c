@@ -1,4 +1,4 @@
-#include "main.h"
+  #include "main.h"
 
 /**
  * print_string - Print a string tp stdout
@@ -15,26 +15,6 @@ void print_string(char *s)
 		_putchar(s[i]);
 		i++;
 	}
-}
-
-/**
- * print_integer - prints an integer to stdout
- * @n: integer to print to stdout
- *
- */
-void print_integer(int n)
-{
-	if (n < 0)
-	{
-		_putchar('-');
-		n = -n;
-	}
-
-	if (n / 10)
-	{
-		print_integer(n / 10);
-	}
-	_putchar(n % 10 + '0');
 }
 
 /**
@@ -77,17 +57,4 @@ void print_percent_sign(va_list ap)
 {
 	(void)ap;
 	_putchar('%');
-}
-
-/**
- * print_int - Prints an integer
- * @ap: arg
- *
- */
-void print_int(va_list ap)
-{
-	int n;
-
-	n = va_arg(ap, int);
-	print_integer(n);
 }
