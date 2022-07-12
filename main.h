@@ -11,23 +11,20 @@
 
 /**
  * struct func_s - Struct func_s
- * @op: The operator
- * @f: The function associated
+ * @op: passed operator
+ * @f: function to call
  */
 typedef struct func_s {
 	char op;
 	void (*f)();
 } func_t;
 
-/* _putchar function */
 int _putchar(char c);
 
-/* Function that produces output according to a format */
 int _printf(const char *format, ...);
 
-/* print functions */
 void print_string(char *str);
-void print_integer(int n);
+void print_int_helper(int n);
 void print_char(va_list ap);
 void print_str(va_list ap);
 void print_percent_sign(va_list ap);
