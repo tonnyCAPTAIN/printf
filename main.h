@@ -1,23 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <stdarg.h>
-#include <limits.h>
-#include <unistd.h>
 
-/**
- * struct func_s - Struct func_s
- * @op: passed operator
- * @f: function to call
- */
-typedef struct func_s {
-	char op;
-	void (*f)();
-} func_t;
 
 int _putchar(char c);
 
