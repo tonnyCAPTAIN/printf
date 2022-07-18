@@ -2,8 +2,8 @@
 
 ## Authors
 
-### John Danquah-Boateng 
-### Tonny Opande 
+#### John Danquah-Boateng 
+#### Tonny Opande 
 
 ### Description
 

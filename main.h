@@ -11,23 +11,40 @@
 
 /**
  * struct func_s - Struct func_s
- * @op: passed operator
- * @f: function to call
+ * @op: The operator
+ * @f: The function associated
  */
-typedef struct func_s {
-	char op;
-	void (*f)();
+typedef struct func_s
+{
+	char *op;
+	int (*f)(va_list);
 } func_t;
 
+/* _putchar function */
 int _putchar(char c);
 
+
+
+/* rev_string function */
+void rev_string(char *s);
+
+
+/* Function that produces output according to a format */
 int _printf(const char *format, ...);
 
-void print_string(char *str);
-void print_int_helper(int n);
-void print_char(va_list ap);
-void print_str(va_list ap);
-void print_percent_sign(va_list ap);
-void print_int(va_list ap);
+/* print_str functions */
+int print_char(va_list ap);
+int print_string(va_list ap);
+int print_percent(va_list ap);
 
-#endif
+/* print_int functions */
+int print_int_helper(int n);
+int print_int(va_list ap);
+
+/* print_binary functions */
+int print_binary(va_list ap);
+
+/* print_unsigned functions */
+int print_unsigned_int(va_list ap);
+
+#endif /* MAIN_H */
