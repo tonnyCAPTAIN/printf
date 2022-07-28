@@ -1,12 +1,10 @@
-#C - printf
+##C - printf
 
-## Authors
-
-#### John Danquah-Boateng 
-#### Tonny Opande 
+### Authors
+- John Danquah-Boateng 
+- Tonny Opande 
 
 ### Description
-
 This is a focused on creating printf fucntions in C - programming. Want to build a function
 just like the standard printf function.
 
