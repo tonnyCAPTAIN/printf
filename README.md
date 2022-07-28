@@ -1,4 +1,4 @@
-##C - printf
+## C - printf
 
 ### Authors
 - John Danquah-Boateng 
